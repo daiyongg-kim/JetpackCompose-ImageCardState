@@ -38,9 +38,13 @@ class MainActivity : ComponentActivity() {
                 mutableStateOf(false)
             }
             ImageCard(
-                isFavirite = isFavorite
+                modifier = Modifier
+                    .fillMaxWidth(0.5f)
+                    .padding(16.dp),
+                isFavirite = isFavorite,
             ) {
-                favorite -> isFavorite = favorite
+                favorite ->
+                isFavorite = favorite
             }
         }
     }
@@ -48,14 +52,13 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ImageCard(
+    modifier: Modifier,
     isFavirite: Boolean,
     onTabFavorite : (Boolean) -> Unit, //<-- call back
 ) {
 
     Card(
-        modifier = Modifier
-            .fillMaxWidth(0.5f)
-            .padding(16.dp),
+        modifier = modifier,
         shape = RoundedCornerShape(8.dp),
 //        elevation = 5.dp,
     ){
